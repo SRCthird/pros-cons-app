@@ -1,0 +1,12 @@
+{
+  "name": "pros-cons-app",
+  "version": "1.0.0",
+  "description": "A simple pros/cons application.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
