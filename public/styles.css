@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.lists {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list {
+    width: 48%;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remove {
+    background-color: #dddddd;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black; 
+    margin-left: 10px;
+    margin-right: 20px;
+    padding: 5px;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+.remove:hover {
+    background-color: rgb(92, 92, 92);
+    color: white;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+    width: 97%;
+}
+
+input[type="text"], select, button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s; /* For a smooth hover and focus effect */
+}
+
+input[type="text"]:focus, select:focus, button:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    margin-left: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #eee;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+h1, h2 {
+    text-align: center;
+}
