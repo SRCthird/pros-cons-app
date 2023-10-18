@@ -37,7 +37,7 @@ export const listSelect = (name) => {
 
     const names = Object.keys(data);
     return (
-        `<select name="name" id="redirectSelect">
+        `<select name="name" onchange="window.location.href='/?name=' + this.value">
             <option value="${name}">${name}</option>
             ${names.map(value => {
                 if (value != name) return `<option value="${value}">${value}</option>`;
@@ -75,40 +75,47 @@ export const header = (title) => {
 
 export const lists = (name) => {
     checkExsistance(name);
-
-    const jsonData = fs.readFileSync('./lists.json', 'utf-8');
-    const data = JSON.parse(jsonData);
-    
-    const pros = data[name].Pros || [];
-    const cons = data[name].Cons || [];
-    return (
-        `<div class="lists">
-            <div class="list">
-                <h2>Pros:</h2>
-                <ul>
-                    ${pros.map(pro =>
-                        `<li>
-                            <div class="list-item">
-                                <p>${pro}<p>
-                                <a class="remove" href="/remove?name=${name}&type=Pros&item=${pro}">x<a>
-                            </div>
-                        </li>`
-                    ).join('')}
-                </ul>
-            </div>
-            <div class="list">
-                <h2>Cons:</h2>
-                <ul>
-                    ${cons.map(con =>
-                        `<li>
-                            <div class="list-item">
-                                <p>${con}<p>
-                                <a class="remove" href="/remove?name=${name}&type=Cons&item=${con}">x<a>
-                            </div>
-                        </li>`
-                    ).join('')}
-                </ul>
-            </div>
-        </div>`
-    )
+    try {
+        const jsonData = fs.readFileSync('./lists.json', 'utf-8');
+        const data = JSON.parse(jsonData);
+        
+        const pros = data[name].Pros || [];
+        const cons = data[name].Cons || [];
+        return (
+            `<div class="lists">
+                <div class="list">
+                    <h2>Pros:</h2>
+                    <ul>
+                        ${pros.map(pro =>
+                            `<li>
+                                <div class="list-item">
+                                    <p>${pro}<p>
+                                    <a class="remove" href="/remove?name=${name}&type=Pros&item=${pro}">x<a>
+                                </div>
+                            </li>`
+                        ).join('')}
+                    </ul>
+                </div>
+                <div class="list">
+                    <h2>Cons:</h2>
+                    <ul>
+                        ${cons.map(con =>
+                            `<li>
+                                <div class="list-item">
+                                    <p>${con}<p>
+                                    <a class="remove" href="/remove?name=${name}&type=Cons&item=${con}">x<a>
+                                </div>
+                            </li>`
+                        ).join('')}
+                    </ul>
+                </div>
+            </div>`
+        )
+    } catch (err) {
+        return (
+        `<script>
+            alert("Creating new list entry");
+            location.reload();
+        </script>`);
+    }
 }
